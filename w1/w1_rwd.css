@@ -1,3 +1,7 @@
+body{
+    margin: 0px;
+}
+
 .top{
     display: flex;
     padding: 10px;
@@ -31,7 +35,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 300px;
+    height: 300px; width: 100%;
+    margin: 0px auto;
     background-color: rgb(110, 183, 234);
 }
 
@@ -106,29 +111,43 @@
 }
 
 
-.first1{flex: none;width: 285px;margin: 0px 20px 20px 0px;}
-.first2{flex: none;width: 285px;margin: 0px 20px 20px 0px;}
-.first3{flex: none;width: 285px;margin: 0px 20px 20px 0px;}
-.first4{flex: none;width: 285px;margin: 0px 0px 20px 0px;}
+.first1{flex: none;width: 285px;margin: 0px 20px 20px 0px;position: relative;}
+.first2{flex: none;width: 285px;margin: 0px 20px 20px 0px;position: relative;}
+.first3{flex: none;width: 285px;margin: 0px 20px 20px 0px;position: relative;}
+.first4{flex: none;width: 285px;margin: 0px 0px 20px 0px;position: relative;}
 
 .row_pic{display: flex;flex: none;}
 
 .row_pic img{
     width: 100%;
     object-fit: cover;
+    z-index: -1;
 }
 
 .row_title{
     text-align: center;
-    background-color: rgb(110, 183, 234);
+    background-color: rgb(255,255,255,0.5);
     font-size: 20px;
     padding: 10px;
+    margin-top:-48px;
 }
 
-.second1{flex: none;width: 285px;margin: 0px 20px 0px 0px;}
-.second2{flex: none;width: 285px;margin: 0px 20px 0px 0px;}
-.second3{flex: none;width: 285px;margin: 0px 20px 0px 0px;}
-.second4{flex: none;width: 285px;}
+.second1{flex: none;width: 285px;margin: 0px 20px 0px 0px;position: relative;}
+.second2{flex: none;width: 285px;margin: 0px 20px 0px 0px;position: relative;}
+.second3{flex: none;width: 285px;margin: 0px 20px 0px 0px;position: relative;}
+.second4{flex: none;width: 285px;position: relative;}
+
+.star{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 30px;    
+}
+
+.star img{
+    width: 100%;
+    object-fit: cover;
+}
 
 
 @media(max-width:1200px){
