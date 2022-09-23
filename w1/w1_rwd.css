@@ -124,14 +124,6 @@ body{
     z-index: -1;
 }
 
-.row_title{
-    text-align: center;
-    background-color: rgb(255,255,255,0.5);
-    font-size: 20px;
-    padding: 10px;
-    margin-top:-48px;
-}
-
 .second1{flex: none;width: 285px;margin: 0px 20px 0px 0px;position: relative;}
 .second2{flex: none;width: 285px;margin: 0px 20px 0px 0px;position: relative;}
 .second3{flex: none;width: 285px;margin: 0px 20px 0px 0px;position: relative;}
@@ -149,6 +141,16 @@ body{
     object-fit: cover;
 }
 
+.row_title{
+    text-align: center;
+    background-color: rgb(255,255,255,0.5);
+    font-size: 20px;
+    padding: 10px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+}
 
 @media(max-width:1200px){
     
