@@ -98,25 +98,6 @@ body{
     justify-content: center;
 }
 
-.main2{
-    display: none;
-    justify-content: center;
-}
-
-.main3{
-    display: none;
-    justify-content: center;
-}
-
-.main4{
-    display: none;
-    justify-content: center;
-}
-
-.main5{
-    display: none;
-    justify-content: center;
-}
 /*.main_content{
     flex: none;
     width: 1200px;
@@ -130,13 +111,6 @@ body{
 .first2{flex: none;width: 285px;margin: 0px 20px 20px 0px;position: relative;}
 .first3{flex: none;width: 285px;margin: 0px 20px 20px 0px;position: relative;}
 .first4{flex: none;width: 285px;margin: 0px 0px 20px 0px;position: relative;}
-
-.second1{flex: none;width: 285px;margin: 0px 20px 0px 0px;position: relative;}
-.second2{flex: none;width: 285px;margin: 0px 20px 0px 0px;position: relative;}
-.second3{flex: none;width: 285px;margin: 0px 20px 0px 0px;position: relative;}
-.second4{flex: none;width: 285px;position: relative;}
-
-
 
 .star{
     position: absolute;
@@ -179,10 +153,6 @@ body{
     .first2{width:45%;margin: 0px 0px 20px 10px;}
     .first3{width:45%;margin: 0px 10px 20px 0px;}
     .first4{width:45%;margin: 0px 0px 20px 10px;}
-    .second1{width:45%;margin: 0px 10px 20px 0px;}
-    .second2{width:45%;margin: 0px 0px 20px 10px;}
-    .second3{width:45%;margin: 0px 10px 0px 0px;}
-    .second4{width:45%;margin: 0px 0px 0px 10px;}
 }
 
 @media(max-width:768px){
@@ -194,10 +164,6 @@ body{
     .first2{width:90%;margin: 0px 0px 20px 0px;}
     .first3{width:90%;margin: 0px 0px 20px 0px;}
     .first4{width:90%;margin: 0px 0px 20px 0px;}
-    .second1{width:90%;margin: 0px 0px 20px 0px;}
-    .second2{width:90%;margin: 0px 0px 20px 0px;}
-    .second3{width:90%;margin: 0px 0px 20px 0px;}
-    .second4{width:90%;margin: 0px;}
 
     .row_pic{height: 600px}
     .top-right{display: none;}
