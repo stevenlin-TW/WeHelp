@@ -1,0 +1,49 @@
+*{
+    margin: 0px;
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: 100px 150px;
+}
+
+.title{
+    /* text-align: center; */
+    font-size: 40px;
+    grid-column: 1 / 4 ;
+    grid-row: 1;
+    background-color: rgb(4, 31, 69);
+    color:white;
+}
+
+.form{
+    margin: auto;
+    font-size: 20px;
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.form div{
+    text-align: center;
+    margin: auto;
+}
+
+.content{
+    margin: auto;
+    font-size: 20px;
+    grid-column: 2;
+    grid-row: 2;
+    text-align: center;
+}
+
+.form2{
+    /* display: flex; */
+    justify-content: center;
+    margin: auto;
+}
+
+.form2 div{
+    text-align: center;
+    padding: 5px;
+}
