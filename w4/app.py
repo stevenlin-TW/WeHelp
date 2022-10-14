@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, url_for
 from flask import render_template
 from flask import request
 from flask import redirect
@@ -47,8 +47,7 @@ def SignOut():
 
 @app.route("/calculate")
 def calculate():
-    num = request.args.get("num_str")
-    return redirect("/square/" + num)
+    return redirect(url_for("square", num = request.args.get("num_str")))
 
 @app.route("/square/<num>")
 def square(num):
