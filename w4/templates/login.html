@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name = "viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <title>Login</title>
+        <link rel="stylesheet" type="text/css" href={{ url_for('static', filename='style.css') }} />
+    </head>
+    <body>
+        <div class="container">
+            <div class="title">
+                <div style="display: flex;align-items: center;justify-content: center;height: 100%;">歡迎光臨，請輸入帳號密碼</div>
+            </div>
+            <form action="/signin" method="POST" class="form">
+                <div>登入系統</div>
+                <div>帳號 <input type="text" name="account"/></div>
+                <div>密碼 <input type="password" name="password"/></div>
+                <div><button>登入</button></div>
+            </form>
+        </div>
+        <hr/>
+        <form action="/calculate" method="GET" class="form2">
+            <div style="margin-top: 10px;">計算正整數的平方</div>
+            <div>正整數 <input type="text" name="num_str"/></div>
+            <div><button>計算</button></div>
+        </form>
+    </body>
+</html>
