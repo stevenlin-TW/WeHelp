@@ -37,13 +37,8 @@
     text-align: center;
 }
 
-.form2{
-    /* display: flex; */
-    justify-content: center;
-    margin: auto;
-}
-
-.form2 div{
+.container2 div{
     text-align: center;
     padding: 5px;
+    margin: auto;
 }
