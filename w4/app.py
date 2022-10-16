@@ -21,6 +21,7 @@ def SignIn():
         password = request.form["password"]
         if account=="test" and password=="test":
             session["user_status"] = "已登入"
+            flash("Login Success!")
             return redirect("/member")
         elif account == "" or password=="":
             return redirect("/error?message=請輸入帳號、密碼")
@@ -44,10 +45,6 @@ def fail():
 def SignOut():
     session["user_status"] = "未登入"
     return redirect("/")
-
-@app.route("/calculate")
-def calculate():
-    return redirect(url_for("square", num = request.args.get("num_str")))
 
 @app.route("/square/<num>")
 def square(num):
