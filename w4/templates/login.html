@@ -19,10 +19,17 @@
             </form>
         </div>
         <hr/>
-        <form action="/calculate" method="GET" class="form2">
+        <div class="container2">
             <div style="margin-top: 10px;">計算正整數的平方</div>
-            <div>正整數 <input type="text" name="num_str"/></div>
-            <div><button>計算</button></div>
-        </form>
+            <div>正整數 <input type="text" name="num_str" id="input_num"/></div>
+            <div><button id="btn">計算</button></div>
+        </div>
+        <script>
+            let btn = document.getElementById("btn");
+            btn.addEventListener("click", ()=>{
+                let input_num = document.getElementById("input_num").value;
+                location.href = "http://127.0.0.1:3000/square/" + input_num;
+            })
+        </script>
     </body>
 </html>
