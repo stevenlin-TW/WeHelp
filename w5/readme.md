@@ -11,7 +11,7 @@
   + 使用 SELECT 指令取得所有在 member 資料表中的會員資料，並按照 time 欄位，由近到遠排序。
   ![螢幕快照 2022-10-22 08 05 40](https://user-images.githubusercontent.com/112813698/197306829-c37ebbf4-4a6a-4b64-b8fa-a5766607749a.png)
 
-  + 使用 SELECT 指令取得 member 資料表中第 2 ~ 4 共三筆資料，並按照 time 欄位，由近到遠排序。( 並非編號 2、3、4 的資料，而是排序後的第 2 ~ 4 筆資料 )
+  + 使用 SELECT 指令取得 member 資料表中第 2 ~ 4 共三筆資料，並按照 time 欄位，由近到遠排序。( 並非編號 2、3、4 的資料，而是排序後的第 2 ~ 4 筆資料 )  
   ![螢幕快照 2022-10-22 08 08 17](https://user-images.githubusercontent.com/112813698/197306968-c115802f-4ad9-430d-8486-005900e991af.png)
 
   + 使用 SELECT 指令取得欄位 username 是 test 的會員資料。
@@ -24,17 +24,17 @@
   ![螢幕快照 2022-10-20 19 30 20](https://user-images.githubusercontent.com/112813698/197307164-c335b85a-ebd1-41a0-99dd-7342d1a961a2.png)
 
 - 要求四
-  + 取得 member 資料表中，總共有幾筆資料 ( 幾位會員 )。
+  + 取得 member 資料表中，總共有幾筆資料 ( 幾位會員 )。  
   ![螢幕快照 2022-10-22 08 15 22](https://user-images.githubusercontent.com/112813698/197307334-91cbf93e-d35c-47a3-8348-40f3017197ee.png)
 
-  + 取得 member 資料表中，所有會員 follower_count 欄位的總和。
+  + 取得 member 資料表中，所有會員 follower_count 欄位的總和。  
   ![螢幕快照 2022-10-22 08 16 20](https://user-images.githubusercontent.com/112813698/197307375-1d1838a5-ae4b-4203-b02f-8030b0a06024.png)
 
-  + 取得 member 資料表中，所有會員 follower_count 欄位的平均數。
+  + 取得 member 資料表中，所有會員 follower_count 欄位的平均數。  
   ![螢幕快照 2022-10-22 08 17 12](https://user-images.githubusercontent.com/112813698/197307422-3b82df27-0dcb-48a4-bef6-093eb9867de3.png)
 
 - 要求五
-  + 新增資料表 message
+  + 新增資料表 message  
   ![螢幕快照 2022-10-22 00 28 01](https://user-images.githubusercontent.com/112813698/197307470-5e1d0f04-71c1-4cb0-b5d9-592a834f7c3c.png)
 
   + 使用 SELECT 搭配 JOIN 語法，取得所有留言，結果須包含留言者會員的姓名。
