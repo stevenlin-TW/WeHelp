@@ -30,7 +30,7 @@ CREATE TABLE `member` (
   `follower_count` int(10) unsigned NOT NULL DEFAULT '0',
   `time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `member` (
 
 LOCK TABLES `member` WRITE;
 /*!40000 ALTER TABLE `member` DISABLE KEYS */;
-INSERT INTO `member` VALUES (1,'test2','test','test',100,'2022-10-20 19:29:47'),(2,'會員B','memberB','memberB',200,'2022-10-20 01:01:45'),(3,'會員C','memberC','memberC',300,'2022-10-20 01:02:28'),(4,'會員D','memberD','memberD',400,'2022-10-20 01:02:53');
+INSERT INTO `member` VALUES (1,'test2','test','test',100,'2022-10-20 19:29:47'),(2,'會員B','memberB','memberB',200,'2022-10-20 01:01:45'),(3,'會員C','memberC','memberC',300,'2022-10-20 01:02:28'),(4,'會員D','memberD','memberD',400,'2022-10-20 01:02:53'),(5,'會員E','memberE','memberE',0,'2022-10-22 07:58:16'),(6,'會員F','memberF','memberF',800,'2022-10-22 08:02:06');
 /*!40000 ALTER TABLE `member` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -59,7 +59,7 @@ CREATE TABLE `message` (
   PRIMARY KEY (`id`),
   KEY `member_id` (`member_id`),
   CONSTRAINT `message_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `member` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,7 +68,7 @@ CREATE TABLE `message` (
 
 LOCK TABLES `message` WRITE;
 /*!40000 ALTER TABLE `message` DISABLE KEYS */;
-INSERT INTO `message` VALUES (1,1,'everything is perfect',100,'2022-10-21 23:48:21'),(2,1,'awesome',23,'2022-10-21 23:51:01'),(3,2,'service suck',0,'2022-10-21 23:52:01'),(4,3,'i am so happy',0,'2022-10-21 23:54:18');
+INSERT INTO `message` VALUES (1,1,'everything is perfect',100,'2022-10-21 23:48:21'),(2,1,'awesome',23,'2022-10-21 23:51:01'),(3,2,'service suck',0,'2022-10-21 23:52:01'),(4,3,'i am so happy',0,'2022-10-21 23:54:18'),(6,6,'i am feeling dizzy right now',3000,'2022-10-22 08:20:57');
 /*!40000 ALTER TABLE `message` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -103,4 +103,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-10-22  7:46:25
+-- Dump completed on 2022-10-22 16:27:10
