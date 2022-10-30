@@ -29,17 +29,17 @@ def SignUp():
     sign_name = request.form["name"]
     sign_username = request.form["username"]
     sign_password = request.form["password"]
-
     cnx = mysql.connector.connect(**config)
     cursor = cnx.cursor()
     cursor.execute("SELECT `username` FROM `member` WHERE `username` = %s", (sign_username,))
     username = cursor.fetchall()
     # Check if the entered username has been exist
     if username != []:
-        return redirect("/error?message=帳號已被註冊")
+        return redirect(url_for("fail", message="帳號已被註冊"))
+    elif sign_name=="" or sign_username=="" or sign_password=="":
+        return redirect(url_for("fail", message="請輸入完整資訊"))
     else:
         cursor.execute("INSERT INTO `member`(`name`,`username`,`password`) VALUES (%s, %s, %s)", (sign_name, sign_username, sign_password))
-        print(cursor.lastrowid)
         cnx.commit()
         cursor.close()
         cnx.close()
@@ -54,11 +54,12 @@ def SignIn():
         password = request.form["password"]
         cnx = mysql.connector.connect(**config)
         cursor = cnx.cursor()
-        cursor.execute("SELECT `username`, `password` FROM `member` WHERE `username`=%s AND `password`=%s", (account, password))
+        cursor.execute("SELECT `id`,`username`, `password` FROM `member` WHERE `username`=%s AND `password`=%s", (account, password))
         result = cursor.fetchall()
         if result != []:
             session["user_status"] = "已登入"
             session["username"] = account
+            session["id"] = result[0][0]
             return redirect("/member")
         elif account == "" or password== "":
             return redirect(url_for("fail", message="請輸入帳號、密碼"))
@@ -70,14 +71,20 @@ def success():
     status = session["user_status"]
     username = session["username"]
     cnx = mysql.connector.connect(**config)
-    cursor = cnx.cursor()
     # Get the name of member
+    cursor = cnx.cursor()
     cursor.execute("Select `name` FROM `member` WHERE `username` = %s", (username,))
     member_name = cursor.fetchall() 
+
+    # Get message content
+    cursor2 = cnx.cursor()
+    cursor2.execute("SELECT `member`.`name`,`message`.`content` FROM `member` INNER JOIN `message` ON `member`.`id`=`message`.`member_id`")
+    message_content = cursor2.fetchall()
+
     if status == "已登入":
         cursor.close()
         cnx.close()
-        return render_template("success.html", name = member_name[0][0])
+        return render_template("success.html", name = member_name[0][0], comment = message_content)
     else:
         cursor.close()
         cnx.close()
@@ -91,8 +98,19 @@ def fail():
 
 @app.route("/signout")
 def SignOut():
-    session["user_status"] = ""
-    session["username"] = ""
+    session.clear()
     return redirect("/")
+
+@app.route("/message", methods=["POST"])
+def Comment():
+    message = request.form["message"]
+    member_id = session["id"]
+    cnx = mysql.connector.connect(**config)
+    cursor = cnx.cursor()
+    cursor.execute("INSERT INTO `message`(`member_id`,`content`) VALUES (%s,%s)", (member_id,message))
+    cnx.commit()
+    cursor.close()
+    cnx.close()
+    return redirect("/member")
 
 app.run(port=3000)

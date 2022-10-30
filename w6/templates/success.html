@@ -16,5 +16,25 @@
                 <div><a href="/signout">登出系統</a></div>
             </div>
         </div>
+        <hr/>
+        <div class="message_box">
+            <form action="/message" method="POST" class="form3">
+                <div style="font-weight: bold;">快來留言吧</div>
+                <div>內容 <input type="text" name="message" /></div>
+                <div><button>送出</button></div>
+            </form>
+        </div>
+        <hr/>
+        <div class="comment_box">
+            <div class="comment" id="comment"></div>
+        </div>
+        <script>
+            var content = document.getElementById("comment");
+            var comment = {{ comment | tojson}};
+            for(let i=0;i<comment.length;i++){
+                content.innerHTML = content.innerHTML + comment[i][0] + " : " + comment[i][1] + "<br/>";
+            }
+            console.log(comment);
+        </script>
     </body>
 </html>
