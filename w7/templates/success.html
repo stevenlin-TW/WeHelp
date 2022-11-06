@@ -16,38 +16,36 @@
                 <div>{{name}}，歡迎登入系統</div>
                 <div><a href="/signout">登出系統</a></div>
             </div>
+            <div class="search_box">
+                <div style="font-weight: bold;">查詢會員姓名</div>
+                <input type="text" id="username" placeholder="Enter Username" /><button id="search">查詢</button>
+                <div class="result" id="name" style="display: none;"></div>
+            </div>
+            <div class="update_box">
+                <div style="font-weight: bold;">更新我的姓名</div>
+                <input type="text" id="new_name" placeholder="Enter New Name" /><button id="update">更新</button>
+                <div class="result" id="update_info" style="display: none;"></div>
+            </div>
+            <script src={{ url_for("static", filename = "member.js")}}></script>
+            <div class="message_box">
+                <form action="/message" method="POST" class="form3">
+                    <div style="font-weight: bold;">快來留言吧</div>
+                    <div>內容 <input type="text" name="message" /></div>
+                    <div><button>送出</button></div>
+                </form>
+            </div>
+            <div class="comment_box">
+                <div class="comment" id="comment"></div>
+            </div>
+            <script>
+                var content = document.getElementById("comment");
+                var comment = {{ comment | tojson }};
+                for(let i=0;i<comment.length;i++){
+                    content.innerHTML = content.innerHTML + comment[i][0] + " : " + comment[i][1] + "<br/>";
+                }
+                console.log(comment);
+            </script>
+            
         </div>
-        <hr/>
-        <div class="message_box">
-            <form action="/message" method="POST" class="form3">
-                <div style="font-weight: bold;">快來留言吧</div>
-                <div>內容 <input type="text" name="message" /></div>
-                <div><button>送出</button></div>
-            </form>
-        </div>
-        <hr/>
-        <div class="comment_box">
-            <div class="comment" id="comment"></div>
-        </div>
-        <script>
-            var content = document.getElementById("comment");
-            var comment = {{ comment | tojson }};
-            for(let i=0;i<comment.length;i++){
-                content.innerHTML = content.innerHTML + comment[i][0] + " : " + comment[i][1] + "<br/>";
-            }
-            console.log(comment);
-
-        </script>
-        <div>
-            <div>查詢會員姓名</div>
-            <input type="text" id="username" /><button id="search">查詢</button>
-            <div class="result" id="name" style="display: none;"></div>
-        </div>
-        <div>
-            <div>更新我的姓名</div>
-            <input type="text" id="new_name" /><button id="update">更新</button>
-            <div class="result" id="update_info" style="display: none;"></div>
-        </div>
-        <script src={{ url_for("static", filename = "member.js")}}></script>
     </body>
 </html>

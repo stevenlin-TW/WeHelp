@@ -1,5 +1,4 @@
-from pickle import FALSE
-from flask import Flask, url_for, jsonify
+from flask import Flask, url_for
 from flask import render_template
 from flask import request
 from flask import redirect
