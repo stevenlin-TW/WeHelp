@@ -1,4 +1,4 @@
-from flask import Flask, url_for
+from flask import Flask, url_for, jsonify
 from flask import render_template
 from flask import request
 from flask import redirect
@@ -128,7 +128,7 @@ def MemberData():
         cursor.execute("SELECT `id`, `name`, `username` FROM `member` WHERE `username` = %s", (search_username,))
         result = cursor.fetchall()
         if result != [] and user_status == "已登入":
-            return_value = {
+            return_value = { 
                             "data": {
                                     "id" : result[0][0], 
                                     "name" : result[0][1],
@@ -142,7 +142,7 @@ def MemberData():
         cursor.close()
         cnx.close()
         print(return_value)
-        return json.dumps(return_value, ensure_ascii=False).encode("utf-8")
+        return jsonify(return_value)
     elif request.method == "PATCH":
         new_name = request.get_json()
         if user_status == "已登入":
@@ -151,10 +151,10 @@ def MemberData():
             print(new_name["name"])
             return_value = { "ok" : True }
         else:
-            return_value = { "error" : True}
+            return_value = { "error" : True }
         cursor.close()
         cnx.close()
-        return json.dumps(return_value, ensure_ascii=False).encode("utf-8")
+        return jsonify(return_value)
 
 
 app.run(port=3000)
