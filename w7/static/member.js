@@ -33,7 +33,6 @@ update_btn.addEventListener("click", ()=>{
     })
         .then(response => response.json())
         .then((data)=>{
-            console.log(data);
             let update_info = document.getElementById("update_info");
             update_info.innerHTML = "更新成功";
             update_info.style.display = "block";

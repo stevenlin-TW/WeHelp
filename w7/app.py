@@ -119,7 +119,6 @@ def Comment():
 @app.route("/api/member", methods=["GET", "PATCH"])
 def MemberData():
     user_status = session["user_status"]
-    username = session["username"]
     cnx = mysql.connector.connect(**config)
     cursor = cnx.cursor()
     if request.method == "GET":
@@ -128,33 +127,30 @@ def MemberData():
         cursor.execute("SELECT `id`, `name`, `username` FROM `member` WHERE `username` = %s", (search_username,))
         result = cursor.fetchall()
         if result != [] and user_status == "已登入":
-            return_value = { 
-                            "data": {
-                                    "id" : result[0][0], 
-                                    "name" : result[0][1],
-                                    "username" : result[0][2]
-                            }
-            }
+            return_value = dict( 
+                                id = result[0][0], 
+                                name = result[0][1],
+                                username = result[0][2]
+            )
         else:
-            return_value = {
-                            "data": None
-            }
+            return_value = None
         cursor.close()
         cnx.close()
         print(return_value)
-        return jsonify(return_value)
+        return jsonify(data=return_value)
     elif request.method == "PATCH":
+        username = session["username"]
         new_name = request.get_json()
+        return_value = True
         if user_status == "已登入":
             cursor.execute("UPDATE `member` SET `name`=%s WHERE `username`=%s", (new_name["name"],username))
             cnx.commit()
             print(new_name["name"])
-            return_value = { "ok" : True }
+            cursor.close()
+            cnx.close()
+            return jsonify(ok = return_value)
         else:
-            return_value = { "error" : True }
-        cursor.close()
-        cnx.close()
-        return jsonify(return_value)
-
-
+            cursor.close()
+            cnx.close()
+            return jsonify(error = return_value)
 app.run(port=3000)
